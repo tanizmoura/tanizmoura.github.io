@@ -16,6 +16,12 @@ h1, h3 {
 	color: #272343;
 }
 
+h6 {
+	font-size: 0.8em;
+	border-top: 1px solid #272343;
+	padding-top: 5px;
+}
+
 
 
 /***NAVEGAÇÃO ***/
@@ -141,3 +147,5 @@ footer {
 	padding-top: 10px;
 	}
 }
+
+
