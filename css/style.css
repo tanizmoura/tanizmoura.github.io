@@ -16,6 +16,8 @@ h1, h3 {
 	color: #272343;
 }
 
+
+
 /***NAVEGAÇÃO ***/
 
 nav h3 {
@@ -81,6 +83,13 @@ a:hover {
 	background: rgba(255,255,255,0.8);
 }
 
+.borda-imagem {
+	border-radius: 30px;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border: 6px solid rgba(39,35,67,0.8);
+}
+
 
 
 .arredondar {
@@ -115,7 +124,11 @@ footer {
 
 	.navbar-nav .nav-link {
     padding-left: 10px;
-}
+	}
+
+	h4 {
+	padding-top: 10px;
+	}
 }
 
 /* Small devices (landscape phones, less than 768px)*/
@@ -124,11 +137,7 @@ footer {
 		padding-bottom: 20px;
 		text-align: center;
 	}
+	h4 {
+	padding-top: 10px;
+	}
 }
-
-/* Medium devices (tablets, less than 992px)*/
-@media (max-width: 991.98px) { ... }
-
-/*Large devices (desktops, less than 1200px)*/
-@media (max-width: 1199.98px) { ... }
-
