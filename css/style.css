@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+body {
+	font-family: 'Raleway', sans-serif;
+	background: #fffffe;
+}
+
+#content {
+	margin-top: 140px;
+}
+
+p {
+	color: #2d334a;
+}
+
+h1, h3 {
+	color: #272343;
+}
+
+/***NAVEGAÇÃO ***/
+
+nav h3 {
+	margin-bottom: 0px;
+	text-transform: uppercase;
+	font-weight: 700;
+	border-left: 6px solid #ffd803;
+}
+
+nav p {
+	font-size: 0.8em;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #17A2B8;
+    background-color: #ffd803;
+}
+
+.navbar-toggler {
+	border: 1px solid rgba(39,35,67,0.5);
+}
+
+/*** LINKS ***/
+
+a {
+    color: #2d334a;
+}
+
+a:hover {
+	color: #17A2B8;
+	text-decoration: none;
+}
+
+/*** BUTTON***/
+.btn-yellow {
+	background: #ffd803;
+	color: #272343;
+}
+
+.btn-yellow:hover {
+	background: #272343;
+	color: #ffd803;
+}
+
+/*** BOX **/
+.mini-box {
+	background: #ffd803;
+	border-radius: 50px;
+	display: inline-block;
+	padding: 5px 10px;
+	color: #17A2B8;
+}
+
+/*** ICONES ***/
+.icons {
+	font-size: 20em;
+	color: #bae8e8;
+}
+
+/*** TRANSPARENCIA**/
+
+.transparencia {
+	background: rgba(255,255,255,0.8);
+}
+
+
+
+.arredondar {
+	border-radius: 500px;
+	-webkit-border-radius: 500px;
+	-moz-border-radius: 500px;
+	border: 3px solid #272343;
+}
+
+/*** cores **/
+.headlinecolor {
+	color: #272343;
+}
+
+
+/*** FOOTER ***/
+footer {
+	text-align: center;
+	margin-top: 50px;
+	padding-top: 10px;
+	border-top: 1px solid #dbdbdb;
+}
+
+/*** MEDIA QUERIES ***/
+
+/* Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575.98px) { 
+	.perfil {
+		padding-bottom: 20px;
+		text-align: center;
+	}
+
+	.navbar-nav .nav-link {
+    padding-left: 10px;
+}
+}
+
+/* Small devices (landscape phones, less than 768px)*/
+@media (max-width: 767.98px) { 
+	.perfil {
+		padding-bottom: 20px;
+		text-align: center;
+	}
+}
+
+/* Medium devices (tablets, less than 992px)*/
+@media (max-width: 991.98px) { ... }
+
+/*Large devices (desktops, less than 1200px)*/
+@media (max-width: 1199.98px) { ... }
+
