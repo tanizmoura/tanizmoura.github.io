@@ -46,6 +46,11 @@ nav p {
 	border: 1px solid rgba(39,35,67,0.5);
 }
 
+.nav-background {
+	background: white;
+	box-shadow: 0 0 4px 0 rgba(0,0,0,0.2);
+}
+
 /*** LINKS ***/
 
 a {
@@ -79,15 +84,12 @@ a:hover {
 
 /*** ICONES ***/
 .icons {
-	font-size: 20em;
+	font-size: 15em;
 	color: #bae8e8;
 }
 
-/*** TRANSPARENCIA**/
 
-.transparencia {
-	background: rgba(255,255,255,0.8);
-}
+/** CONFIG IMAGENS **/
 
 .borda-imagem {
 	border-radius: 30px;
@@ -95,8 +97,6 @@ a:hover {
 	-moz-border-radius: 30px;
 	border: 6px solid rgba(39,35,67,0.8);
 }
-
-
 
 .arredondar {
 	border-radius: 500px;
@@ -129,7 +129,7 @@ footer {
 	}
 
 	.navbar-nav .nav-link {
-    padding-left: 10px;
+    padding-left: 15px;
 	}
 
 	h4 {
@@ -143,6 +143,11 @@ footer {
 		padding-bottom: 20px;
 		text-align: center;
 	}
+
+	.navbar-nav .nav-link {
+    padding-left: 15px;
+	}
+
 	h4 {
 	padding-top: 10px;
 	}
