@@ -22,7 +22,11 @@ h6 {
 	padding-top: 5px;
 }
 
+/*** CARROUSEL ***/
 
+.carousel-item {
+	width: auto;
+}
 
 /***NAVEGAÇÃO ***/
 
