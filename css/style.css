@@ -77,6 +77,16 @@ a:hover {
 	color: #ffd803;
 }
 
+.btn-purple {
+	background: #272343;
+	color: #ffd803;
+}
+
+.btn-purple:hover {
+	background: #ffd803;
+	color: #272343;
+}
+
 /*** BOX **/
 .mini-box {
 	background: #ffd803;
