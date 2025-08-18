@@ -1,0 +1,21 @@
+/*DEFININDO PALETA DE CORES*/
+:root {
+   --primary-color: #0B0B0F;
+   --primary-bg-color: #fff;
+
+   --secondary-bg-color: #FFC1CE;
+   --secondary-color:#FB698E;
+
+   --title-color: #0b0b0f; 
+   --btn-bg-color: #FB698E;
+   --btn-secondary-color: #464646;
+}
+
+/*CSS RESET*/
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    border: none;
+    list-style: none;
+}
