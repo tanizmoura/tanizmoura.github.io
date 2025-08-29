@@ -1,0 +1,39 @@
+/*DEFININDO PALETA DE CORES*/
+:root, :root[data-theme='light'] {
+    --primary-color: #0B0B0F;
+    --primary-bg-color: #ffffff;
+
+    --secondary-bg-color: rgba(255, 193, 206, 0.8);
+    --secondary-bg-color-2: rgba(255, 193, 206, 0.5);
+    --secondary-color: #FB698E;
+
+    --shadow-box:#FB698E;
+    --title-color: #0b0b0f;
+    --header-color: #0b0b0f; 
+    --details:#FB698E;
+    --btnline-color:#FB698E;
+    --btn-bg-hover:rgba(255, 193, 206, 0.8);
+    --btn-bg-color: #FB698E;
+    --btn-shadow: #EA547A;
+    --btn-secondary-color: #464646;
+}
+
+:root, :root[data-theme='dark'] {
+    --primary-color: #fff;
+    --primary-bg-color: #0B0B0F;
+
+    --secondary-bg-color: rgba(20, 20, 20, 0.8);
+    --secondary-bg-color-2: rgba(20, 20, 20, 0.5);
+    --secondary-color: rgb(20,20,20);
+
+    --header-color: #FB698E;
+    --shadow-box:#292929;
+    --title-color: #fff;
+    --details:#FB698E;
+    --btn-bg-hover:#ff82a1;
+    --btnline-color:#FB698E;
+    --btn-hover-shadow: #EA547A;
+    --btn-bg-color: #FB698E;
+    --btn-shadow: #EA547A;
+    --btn-secondary-color: #464646;
+}

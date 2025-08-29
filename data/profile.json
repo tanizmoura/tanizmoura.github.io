@@ -1,0 +1,176 @@
+{
+    "nome": "Tanise Moura",
+    "titulo": "Desenvolvedora Front-End",
+    "localidade": "Porto Alegre - RS",
+    "cargo": "Estudande de desenvolvimento Full-Stack",
+    "sobre-mim": "Nascida e criada na cidade de Porto Alegre - RS, tenho 30 anos e sempre tive um certo facínio pela tecnologia. Fiz vários cursos online, porém nunca consegui focar de fato então acabei perdendo a prática do que aprendi. Agora estou recomeçando através de bootcamps, já consigo fazer sites responsíveis usando flexbox, bootstrap e atualmente estou aprendendo javascript.",
+    "links": {
+        "github": "https://github.com/tanizmoura",
+        "linkedin": "https://www.linkedin.com/in/tanise-moura/",
+        "whatsapp": "51985200476",
+        "email": "tanizmoura@gmail.com"
+    },
+    "perfil-photo": "https://raw.githubusercontent.com/tanizmoura/tanizmoura.github.io/refs/heads/main/assets/img/sobremim_img.jpeg",
+    "habilidades": {
+        "hardSkills": [
+            {
+                "nome": "HTML5",
+                "src": "https://raw.githubusercontent.com/tanizmoura/tanizmoura.github.io/refs/heads/main/assets/img/HTML5.png"
+            },
+            {
+                "nome": "CSS3",
+                "src": "https://raw.githubusercontent.com/tanizmoura/tanizmoura.github.io/refs/heads/main/assets/img/css_icon.png"
+            },
+            {
+                "nome": "JavaScript",
+                "src": "https://raw.githubusercontent.com/tanizmoura/tanizmoura.github.io/refs/heads/main/assets/img/java-scripticon.png"
+            }
+        ],
+        "softSkills": [
+            "Trabalho em Equipe",
+            "Empatia",
+            "Autodidata",
+            "Organização",
+            "Flexibilidade"
+        ]
+    },
+    "idiomas": [
+        {
+            "nome": "Português",
+            "nivel": "Nativo"
+        },
+        {
+            "nome": "Inglês",
+            "nivel": "Intermediário"
+        }
+    ],
+    "educacao": [
+        {
+            "nome": "dio.me",
+            "descricao": "Aprendizado contínuo na maior plataforma de educação aberta da América Latina.",
+            "instituicao": "Digital Innovation One (DIO)",
+            "periodo": {
+                "inicio": "2025",
+                "fim": "Atualmente"
+            },
+            "certificados": [
+                {
+                    "nome": "Bootcamp: Santander - Front End (102h)",
+                    "link": "https://www.dio.me/certificate/UG4QLYU5"
+                },
+                {
+                    "nome": "Bootcamp: Suzano - Python Developer (57h)",
+                    "link": "https://www.dio.me/certificate/RSEHPBNQ"
+                }
+            ]
+        },
+        {
+            "nome": "Formação Front-End com ReactJS",
+            "descricao": "Empresa de software em Campo Bom, Rio Grande do Sul",
+            "instituicao": "Growdev",
+            "periodo": {
+                "inicio": "2025",
+                "fim": "Atualmente"
+            }
+        }
+    ],
+    "portfolio": [
+        {
+            "nome": "Projeto Nikel",
+            "descricao": "Simula um sistema de registros financeiros onde é possível fazer um cadastro simples para poder salvar entradas e saídas.",
+            "repositorio": "https://github.com/tanizmoura/Projeto-Nikel",
+            "previa": "https://tanizmoura.github.io/Projeto-Nikel/",
+            "img": "https://raw.githubusercontent.com/tanizmoura/tanizmoura.github.io/refs/heads/main/assets/img/projects/project01.png",
+            "tecnologias": [
+                {
+                    "nome": "HTML5",
+                    "src": "https://raw.githubusercontent.com/tanizmoura/tanizmoura.github.io/refs/heads/main/assets/img/HTML5.png"
+                },
+                {
+                    "nome": "CSS3",
+                    "src": "https://raw.githubusercontent.com/tanizmoura/tanizmoura.github.io/refs/heads/main/assets/img/css_icon.png"
+                },
+                {
+                    "nome": "JavaScript",
+                    "src": "https://raw.githubusercontent.com/tanizmoura/tanizmoura.github.io/refs/heads/main/assets/img/java-scripticon.png"
+                }
+            ]
+        },
+        {
+            "nome": "Pokedéx",
+            "descricao": "Representação de pokedéx manipulando elementos de uma API e elementos do DOM.",
+            "repositorio": "https://github.com/tanizmoura/Pokedex",
+            "previa": "https://tanizmoura.github.io/Pokedex/",
+            "img": "https://raw.githubusercontent.com/tanizmoura/tanizmoura.github.io/refs/heads/main/assets/img/projects/project01.png",
+            "tecnologias": [
+                {
+                    "nome": "HTML5",
+                    "src": "https://raw.githubusercontent.com/tanizmoura/tanizmoura.github.io/refs/heads/main/assets/img/HTML5.png"
+                },
+                {
+                    "nome": "CSS3",
+                    "src": "https://raw.githubusercontent.com/tanizmoura/tanizmoura.github.io/refs/heads/main/assets/img/css_icon.png"
+                },
+                {
+                    "nome": "JavaScript",
+                    "src": "https://raw.githubusercontent.com/tanizmoura/tanizmoura.github.io/refs/heads/main/assets/img/java-scripticon.png"
+                }
+            ]
+        },
+        {
+            "nome": "Yugioh Jo-Ken-Po",
+            "descricao": "Jogo de Jokenpo com temática de Yu-Gi-Oh criado durante o módulo de javascript avançado do Bootcamp Santander Front-End 2025.",
+            "repositorio": "https://github.com/tanizmoura/yugioh-jokenpo",
+            "previa": "https://tanizmoura.github.io/yugioh-jokenpo/",
+            "img": "https://raw.githubusercontent.com/tanizmoura/tanizmoura.github.io/refs/heads/main/assets/img/projects/project01.png",
+            "tecnologias": [
+                {
+                    "nome": "HTML5",
+                    "src": "https://raw.githubusercontent.com/tanizmoura/tanizmoura.github.io/refs/heads/main/assets/img/HTML5.png"
+                },
+                {
+                    "nome": "CSS3",
+                    "src": "https://raw.githubusercontent.com/tanizmoura/tanizmoura.github.io/refs/heads/main/assets/img/css_icon.png"
+                },
+                {
+                    "nome": "JavaScript",
+                    "src": "https://raw.githubusercontent.com/tanizmoura/tanizmoura.github.io/refs/heads/main/assets/img/java-scripticon.png"
+                }
+            ]
+        },
+        {
+            "nome": "Discord Clone",
+            "descricao": "Cópia da página do Discord usando os conhecimentos adquiridos no módulo de responsividade.",
+            "repositorio": "https://github.com/tanizmoura/clone_discord",
+            "previa": "https://tanizmoura.github.io/clone_discord/",
+            "img": "https://raw.githubusercontent.com/tanizmoura/tanizmoura.github.io/refs/heads/main/assets/img/projects/project02.png",
+            "tecnologias": [
+                {
+                    "nome": "HTML5",
+                    "src": "https://raw.githubusercontent.com/tanizmoura/tanizmoura.github.io/refs/heads/main/assets/img/HTML5.png"
+                },
+                {
+                    "nome": "CSS3",
+                    "src": "https://raw.githubusercontent.com/tanizmoura/tanizmoura.github.io/refs/heads/main/assets/img/css_icon.png"
+                }
+            ]
+        },
+        {
+            "nome": "Clipboard Landing Page",
+            "descricao": "Solução ao desafio proposto pelo FrontEnd Mentor. Página responsiva usandoos conceitos de flexbox.",
+            "repositorio": "https://github.com/tanizmoura/Clipboard-landing-page",
+            "previa": "https://tanizmoura.github.io/Clipboard-landing-page/",
+            "img": "https://raw.githubusercontent.com/tanizmoura/tanizmoura.github.io/refs/heads/main/assets/img/projects/project03.png",
+            "tecnologias": [
+                {
+                    "nome": "HTML5",
+                    "src": "https://raw.githubusercontent.com/tanizmoura/tanizmoura.github.io/refs/heads/main/assets/img/HTML5.png"
+                },
+                {
+                    "nome": "CSS3",
+                    "src": "https://raw.githubusercontent.com/tanizmoura/tanizmoura.github.io/refs/heads/main/assets/img/css_icon.png"
+                }
+            ]
+        }
+    ]
+}
