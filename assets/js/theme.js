@@ -25,7 +25,6 @@ function changeTheme(){
 
 }
 
-
 toggleTheme.addEventListener("click", changeTheme);
 
 
