@@ -77,6 +77,16 @@ i {
     flex-direction: column;
 }
 
+.container-header {
+    padding: .3rem;
+    display: flex;
+    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
 /*HEADER*/
 .logo {
     min-width: 3rem;
@@ -102,10 +112,11 @@ header i {
     font-size: 1.5rem;
 }
 
-header .container {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+header #toggleTheme {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 1.5rem;    
 }
 
 #toggleTheme2, #toggleTheme {
@@ -118,6 +129,7 @@ header .container {
     display: flex;
     align-items: center;
     text-align: center;
+    
 }
 
 #home h1 {
@@ -142,6 +154,15 @@ header .container {
     display: flex;
     justify-content: space-between;
     margin: 1rem 0;
+    
+}
+
+.icons-social a {
+    transition: 0.3s ease-in-out;
+}
+
+.icons-social a:hover {
+    filter: invert();
 }
 
 /*ICONES SKILLS*/
@@ -226,8 +247,7 @@ header .container {
 }
 
 /*SKILLS*/
-#skills,
-#about {
+section {
     background: linear-gradient(var(--secondary-bg-color-2), var(--secondary-bg-color));
     box-shadow: 1px 1px 6px var(--shadow-box);
 }
@@ -330,7 +350,6 @@ footer {
     border-top: 1px solid var(--details);
     text-align: center;
     padding: 1rem 0;
-    margin-bottom: 5rem;
 }
 
 /*NAVEGAÇÃO MOBILE*/
@@ -342,7 +361,8 @@ nav {
 }
 
 .nav-mobile {
-    background-color: var(--secondary-color);
+    background: var(--menu-bg-color);
+    background-color: var(--primary-bg-color);
     display: flex;
     justify-content: space-between;
     
@@ -353,19 +373,18 @@ nav {
     flex-grow: 1;
     padding: .8rem 0;
     transition: font-weight 0.3s ease-in-out;
+    cursor: pointer;
 }
 
 .nav-mobile .icon-nav p {
     font-size: 0.8rem;
 }
 
-.nav-mobile .icon-nav:hover,  .nav-mobile .icon-nav:active{
+.active-mobile, .nav-mobile .icon-nav:hover,  .nav-mobile .icon-nav:active{
     border-top: 2px solid var(--primary-color);
     font-weight: 600;
     margin-top: -2px;
 }
-
-
 
 /******* MEDIA QUERIES *********/
 
@@ -375,9 +394,8 @@ nav {
     }
 }
 
-
 @media (min-width: 768px) {
-    .container {
+    .container-header, .container {
         max-width: 80%;
         margin: 0 auto;
     }
@@ -385,10 +403,9 @@ nav {
     /** HEADER LG CONFIG*/
 
     header {
-        background-color: var(--secondary-color);
+        background: var(--menu-bg-color);
+        
         box-shadow: 1px 1px 6px var(--shadow-box);
-        position: fixed;
-        top: 0;
         width: 100%;
         
     }
@@ -398,12 +415,10 @@ nav {
 
     .nav-lg {
         display: flex;
-        flex-grow: 1;
-        justify-content: flex-end;
-        column-gap: 1rem;
-        padding-right: 1rem;
+        column-gap: 1rem;        
         font-weight: 400;
         text-transform: uppercase;
+        align-self:last baseline;        
     }
 
     .nav-lg a {
@@ -411,8 +426,9 @@ nav {
         transition: font-weight 0.3s ease-in-out;
     }
 
-    .nav-lg a:hover{
+    .nav-lg a:hover, .active-lg{
         font-weight: 800;
+        padding-bottom: .5rem;
         border-bottom: 1px solid var(--primary-color);
         margin-bottom: -1px;
     }
@@ -485,13 +501,10 @@ nav {
     }
 
     #skills,#contact, #about {
-      padding: 5rem 0; 
       align-content: center;
     }
 
-    #home, #projects {
-        padding: 8rem 0;
-    }
+
 }
 
 
