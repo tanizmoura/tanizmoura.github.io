@@ -15,12 +15,12 @@ async function setActive(type, profileData) {
             activePage = item.children.item(0).href.split('#')[1]
             console.log(activePage)
             showActualPage(activePage, profileData)
-            
+
         })
     })
 }
 
-//seleciona página atual a ser mostrada na página
+//select and set actual page
 function showActualPage(page, profileData) {
     let functionToCall = ''
     main.innerHTML = ''
@@ -52,48 +52,133 @@ function showActualPage(page, profileData) {
     main.appendChild(functionToCall)
 }
 
-//Mostra Home
+//create div iconskills
+function createDivIconSkills(skillList) {
+    const divIcon = document.createElement('div')
+    divIcon.classList.add('icons-skills') 
+
+    skillList.forEach((skill) => {
+        const figure = document.createElement('figure')
+        const img = document.createElement('img')
+
+        img.src = skill.src
+        img.alt = skill.nome
+
+        figure.appendChild(img)
+
+        divIcon.appendChild(figure)
+    })
+
+    return divIcon
+}
+
+//create div iconsocial
+function createDivIconSocial(links) {
+
+    const divIcon = document.createElement('div')
+    divIcon.classList.add('icons-social')
+
+    links.forEach((link) => {
+        const a = document.createElement('a')
+        const i = document.createElement('i')
+
+        a.href = link.src
+        i.classList.add('bi')
+        i.classList.add(`bi-${link.nome}`)
+        a.appendChild(i)
+
+        divIcon.appendChild(a)
+    })
+
+    return divIcon
+}
+
+//create div softskills
+function createDivSoftSkills(softSkillsList) {
+    const divSoftSkill = document.createElement('div')
+
+    const ul = document.createElement('ul')
+    softSkillsList.forEach((skill) => {
+        const li = document.createElement('li')
+        li.innerText = skill
+        ul.appendChild(li)
+    })
+
+    const h3 = document.createElement('h3')
+    h3.innerText = 'SoftSkills'
+
+    divSoftSkill.appendChild(h3)
+    divSoftSkill.appendChild(ul)
+
+    return divSoftSkill
+}
+
+//create div languages
+function createDivLanguages(languagesList) {
+     const divLanguages = document.createElement('div')
+
+    const ul = document.createElement('ul')
+    languagesList.forEach((language) => {
+        const li = document.createElement('li')
+        li.innerText = `${language.nome} (${language.nivel})`
+        ul.appendChild(li)
+    })
+
+    const h3 = document.createElement('h3')
+    h3.innerText = 'Idiomas'
+
+    divLanguages.appendChild(h3)
+    divLanguages.appendChild(ul)
+
+    return divLanguages
+}
+
+//create div title
+function createDivTitle(txt) {
+    const divTitle = document.createElement('div')
+    divTitle.classList.add('title')
+
+    const h2 = document.createElement('h2')
+    h2.innerText = txt
+
+    divTitle.appendChild(h2)
+
+    return divTitle
+}
+
+//show home page
 function showHome(profileData) {
+    const links = profileData.links
+
     const section = document.createElement('section')
     section.id = 'home'
     section.classList.add('container')
-    
+
     const h1 = document.createElement('h1')
     h1.innerText = `Olá! Me chamo ${profileData.nome}.`
 
     const h2 = document.createElement('h2')
     h2.innerText = profileData.titulo
-    
+
     const p = document.createElement('p')
     p.innerText = `${profileData.localidade}, ${profileData.cargo}.`
 
-    const divIcon = document.createElement('div')
-    
+    const divIcon = createDivIconSocial(links)
+
     section.appendChild(h1)
     section.appendChild(h2)
     section.appendChild(p)
+
     section.appendChild(divIcon)
 
     return section
-    /*`<section id="home" class="container"> <!--HOME-->
-
-            <h1></h1>
-            <h2></h2>
-            <p></p>
-
-
-            <div class="icons-social"> <!--Icones redes sociais -->
-                <a href="https://github.com/tanizmoura"><i class="bi bi-github"></i></a>
-                <a href="https://www.linkedin.com/in/tanise-moura/"><i class="bi bi-linkedin"></i></a>
-                <a href="https://wa.me/+5551985200476"><i class="bi bi-whatsapp"></i></a>
-            </div>
-        </section> `*/
 }
 
-//Mostra habilidades
+//show skill page
 function showSkills(profileData) {
     const hardSkills = profileData.skills.hardSkills
     const softSkills = profileData.skills.softSkills
+    const languages = profileData.idiomas
 
     //criando elementos HTML
     const section = document.createElement('section')
@@ -102,75 +187,119 @@ function showSkills(profileData) {
     divSkills.id = 'skills'
 
     const divContainer = document.createElement('div')
-    divContainer.classList.add('container')
+    divContainer.classList.add('container')   
 
-    const divTitle = document.createElement('div')
-    divTitle.classList.add('title')
-    
-    const title = document.createElement('h2')
-    title.innerText = 'Habilidades'
-
-    const divIcon = document.createElement('div')
-    divIcon.classList.add('icon-skills')
+    const divOutros = document.createElement('div')
+    divOutros.appendChild(createDivSoftSkills(softSkills))
+    divOutros.appendChild(createDivLanguages(languages))
+    divOutros.classList.add('subSkills')
 
     //adicionando elementos html
     section.appendChild(divSkills)
     divSkills.appendChild(divContainer)
-    divContainer.appendChild(divTitle)
-    divContainer.appendChild(divIcon)
-    divTitle.appendChild(title)
+    divContainer.appendChild(createDivTitle('Habilidades'))
+    divContainer.appendChild(createDivIconSkills(hardSkills))
+    divContainer.appendChild(divOutros)
 
     return section
-    
+
 }
 
 function showProjects(profileData) {
-    return `<section id="projects" class="container"> <!--PROJECTS-->
-            <div class="section-project-title">
-                <div class="title"> <!--Título-->
-                    <h2>Projetos</h2>
-                </div>
-            </div>
+    const portfolio = profileData.portfolio
 
-            <div class="card-project"> <!--Card Projeto-->
-                <figure class="img-project"> <!--Imagem do Projeto-->
-                    <img src="assets/img/projects/project01.png" alt="Imagem do projeto">
-                </figure>
+    const section = document.createElement('section')
+    section.id = 'projects'
+    section.classList.add('container')
 
-                <h3>Projeto Nikel</h3><!--Título do Projeto-->
+    
+    const divTitleProject = document.createElement('div')
+    divTitleProject.classList.add('section-project-title')
+    divTitleProject.appendChild(createDivTitle('Projetos'))
 
-                <p>Projeto criado durante o curso Codaí 2.0 - Frontend da <a href="https://growdev.com.br/">Growdev</a>.
-                </p><!--Descrição do projeto-->
+    section.appendChild(divTitleProject)
+    
+    portfolio.forEach((projeto) => {
+        const divCard = document.createElement('div')
+        divCard.classList.add('card-project')
 
-                <div class="icons-skills"> <!--Icones Skills-->
-                    <figure>
-                        <img src="assets/img/HTML5.png" alt="Icone HTML5">
-                    </figure>
+        const figure = document.createElement('figure')
+        figure.classList.add('img-project')
 
-                    <figure>
-                        <img src="assets/img/css_icon.png" alt="Icone CSS3">
-                    </figure>
+        const img = document.createElement('img')
+        img.src = projeto.src
+        img.alt = projeto.nome
 
-                    <figure>
-                        <img src="assets/img/java-scripticon.png" alt="Icone JavaScript">
-                    </figure>
-                </div>
+        const h3 = document.createElement('h3')
+        h3.innerText = projeto.nome
 
-                <div class="buttons-project"> <!--Botões projeto-->
-                    <a href="https://tanizmoura.github.io/Projeto-Nikel/index.html">
+        const p = document.createElement('p')
+        p.innerText = projeto.descricao
+
+        
+
+        const divButtons = document.createElement('div')
+        divButtons.classList.add('buttons-project')
+
+        const aPrevia = document.createElement('a')
+        aPrevia.href = projeto.previa
+        
+        const previaButton = document.createElement('button')
+        previaButton.classList.add('btn')
+        previaButton.innerText = 'Prévia'
+
+        aPrevia.appendChild(previaButton)
+
+        const aRepositorio = document.createElement('a')
+        aRepositorio.href = projeto.repositorio
+
+        const repositorioButton = document.createElement('button')
+        repositorioButton.classList.add('btn-line')
+        repositorioButton.innerText = 'Repositório'
+
+        aRepositorio.appendChild(repositorioButton)
+
+
+        /**<a href="https://tanizmoura.github.io/Projeto-Nikel/index.html">
                         <button type="button" class="btn">Prévia</button>
-                    </a>
-                    <a href="https://github.com/tanizmoura/Projeto-Nikel">
-                        <button type="button" class="btn-line">Repositório</button>
-                    </a>
-                </div>
-            </div>
+                    </a> */
+
+        divButtons.appendChild(aPrevia)
+        divButtons.appendChild(aRepositorio)
+
+        figure.appendChild(img)
+
+        divCard.appendChild(figure)
+        divCard.appendChild(h3)
+        divCard.appendChild(p)
+        divCard.appendChild(createDivIconSkills(projeto.tecnologias))
+        divCard.appendChild(divButtons)
+
+        section.appendChild(divCard)
+    })
+
+    const divMoreButton = document.createElement('div')
+    divMoreButton.classList.add('button-more-projects')
+
+    const aButton = document.createElement('a')
+    aButton.href = 'https://github.com/tanizmoura?tab=repositories'
+    const button = document.createElement('button')
+    button.classList.add('btn-black')
+    button.innerText = 'Ver todos os Projetos'
+    aButton.appendChild(button)
+
+    divMoreButton.appendChild(aButton)
+
+    section.appendChild(divMoreButton)
+
+    /*return
             <div class="button-more-projects">
                 <a href="https://github.com/tanizmoura?tab=repositories">
                     <button class="btn-black" type="button">Ver todos os Projetos</button>
                 </a>
             </div>
-            </section>`
+            </section>`*/
+            return section
 }
 
 function showAbout(profileData) {
@@ -195,31 +324,39 @@ function showAbout(profileData) {
         </section>`
 }
 
+//show contact
 function showContact(profileData) {
-    return `<section id="contact" class="container">
-            <div class="title">
-                <h2>Contate-me</h2>
-            </div>
+    const links = profileData.links
 
-            <div class="text">
-                <p>Estou disponível para novos serviços e conexões. Contate-me via email ou whatsapp.</p>
-            </div>
+    const section = document.createElement('section')
+    section.id = 'contact'
+    section.classList.add('container')
 
-            <div class="icons-social"> <!--Icones redes sociais -->
-                <a href="https://github.com/tanizmoura"><i class="bi bi-github"></i></a>
-                <a href="https://www.linkedin.com/in/tanise-moura/"><i class="bi bi-linkedin"></i></a>
-                <a href="https://wa.me/+5551985200476"><i class="bi bi-whatsapp"></i></a>
-            </div>
+    const divText = document.createElement('div')
+    divText.classList.add('text')
 
-            <div class="btn-line">
-                <a href="mailto:tanizmoura@gmail.com">tanizmoura@gmail.com</a>
-            </div>
-        </section>`
+    const p = document.createElement('p')
+    p.innerText = 'Estou disponível para novos serviços e conexões. Contate-me via email ou whatsapp.'
+    
+    const divBtn = document.createElement('div')
+    divBtn.classList.add('btn-line')
+
+    const a = document.createElement('a')
+    a.href = `mailto:${profileData.email}`
+    a.innerText = profileData.email
+
+    divBtn.appendChild(a)
+    divText.appendChild(p)
+    section.appendChild(createDivTitle('Contate-me'))
+    section.appendChild(divText)
+    section.appendChild(createDivIconSocial(links))
+    section.appendChild(divBtn)
+
+    return section
 }
 
 (async () => {
     const profileData = await fetchProfileData()
-    const profile = await createProfile()
     showActualPage('home', profileData)
     await setActive('mobile', profileData)
     await setActive('lg', profileData)

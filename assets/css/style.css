@@ -27,6 +27,7 @@ body {
 
 main {
     padding: 2rem;
+    margin-bottom: 5rem;
 }
 
 /*CORES PADRÃO BODY E LINKS*/
@@ -254,6 +255,26 @@ section {
     box-shadow: 1px 1px 6px var(--shadow-box);
 }
 
+.subSkills {
+    display: flex;
+    justify-content: center;
+    column-gap: 2rem;
+    padding: 1rem;
+    margin-top: 3rem;
+    font-size: 1rem;
+}
+
+.subSkills h3 {
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    border-left: 3px solid var(--details);
+    padding-left: .5rem;
+}
+
+.subSkills li {
+    margin-bottom: .5rem;
+}
+
 /*PROJECTS*/
 .card-project {
     background-color: var(--secondary-bg-color);
@@ -408,6 +429,8 @@ nav {
     /** HEADER LG CONFIG*/
     main {
         min-height: 70vh;
+        max-width: 80%;
+        margin: 0 auto;
     }
 
     header {
@@ -489,6 +512,11 @@ nav {
     .icons-social {
         min-width: 20rem;
     }
+
+    .subSkills {
+     font-size: 1.5rem;   
+    column-gap: 5rem;
+}
 
     /**ICONES SKILLS**/
 
