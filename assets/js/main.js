@@ -55,7 +55,7 @@ function showActualPage(page, profileData) {
 //create div iconskills
 function createDivIconSkills(skillList) {
     const divIcon = document.createElement('div')
-    divIcon.classList.add('icons-skills') 
+    divIcon.classList.add('icons-skills')
 
     skillList.forEach((skill) => {
         const figure = document.createElement('figure')
@@ -115,7 +115,7 @@ function createDivSoftSkills(softSkillsList) {
 
 //create div languages
 function createDivLanguages(languagesList) {
-     const divLanguages = document.createElement('div')
+    const divLanguages = document.createElement('div')
 
     const ul = document.createElement('ul')
     languagesList.forEach((language) => {
@@ -144,6 +144,19 @@ function createDivTitle(txt) {
     divTitle.appendChild(h2)
 
     return divTitle
+}
+
+//create divText
+function createDivText(txt) {
+    const divText = document.createElement('div')
+    divText.classList.add('text')
+
+    const p = document.createElement('p')
+    p.innerText = txt
+
+    divText.appendChild(p)
+
+    return divText
 }
 
 //show home page
@@ -187,7 +200,7 @@ function showSkills(profileData) {
     divSkills.id = 'skills'
 
     const divContainer = document.createElement('div')
-    divContainer.classList.add('container')   
+    divContainer.classList.add('container')
 
     const divOutros = document.createElement('div')
     divOutros.appendChild(createDivSoftSkills(softSkills))
@@ -205,6 +218,7 @@ function showSkills(profileData) {
 
 }
 
+//show projects page
 function showProjects(profileData) {
     const portfolio = profileData.portfolio
 
@@ -212,13 +226,13 @@ function showProjects(profileData) {
     section.id = 'projects'
     section.classList.add('container')
 
-    
+
     const divTitleProject = document.createElement('div')
     divTitleProject.classList.add('section-project-title')
     divTitleProject.appendChild(createDivTitle('Projetos'))
 
     section.appendChild(divTitleProject)
-    
+
     portfolio.forEach((projeto) => {
         const divCard = document.createElement('div')
         divCard.classList.add('card-project')
@@ -236,14 +250,14 @@ function showProjects(profileData) {
         const p = document.createElement('p')
         p.innerText = projeto.descricao
 
-        
+
 
         const divButtons = document.createElement('div')
         divButtons.classList.add('buttons-project')
 
         const aPrevia = document.createElement('a')
         aPrevia.href = projeto.previa
-        
+
         const previaButton = document.createElement('button')
         previaButton.classList.add('btn')
         previaButton.innerText = 'Prévia'
@@ -299,29 +313,87 @@ function showProjects(profileData) {
                 </a>
             </div>
             </section>`*/
-            return section
+    return section
 }
 
 function showAbout(profileData) {
-    return `<section id="about">
-            <div class="container">
-                <figure>
-                    <img src="assets/img/sobremim_img.jpeg" alt="Imagem da desenvolvedora">
-                </figure>
+    const educacao = profileData.educacao
 
-                <div class="title">
-                    <h2>Sobre mim</h2>
-                </div>
+    const section = document.createElement('section')
+    section.id = 'about'
 
-                <div class="text">
-                    <p>Nascida e criada na cidade de Porto Alegre - RS, tenho 30 anos e sempre tive um certo facínio
+    const divContainer = document.createElement('div')
+    const divContainerEducation = document.createElement('div')
+    divContainer.classList.add('container')
+    divContainerEducation.classList.add('container')
+
+    const figure = document.createElement('figure')
+    const img = document.createElement('img')
+    img.src = profileData.perfilPhoto
+    img.alt = 'Imagem da desenvolvedora'
+
+    figure.appendChild(img)
+
+    const divEducacao = document.createElement('div')
+    divEducacao.classList.add('education')
+
+    divEducacao.appendChild(createDivTitle('Educação'))
+
+    educacao.forEach((item) => {
+        const educationBox = document.createElement('div')
+        educationBox.classList.add('education-box')
+
+        const h3 = document.createElement('h3')
+        h3.innerText = item.nome
+
+        const spanSubTitle = document.createElement('span')
+        spanSubTitle.innerHTML = `${item.instituicao}<br>`
+
+        const spanPeriod = document.createElement('span')
+        spanPeriod.innerHTML = `${item.periodo.inicio} - ${item.periodo.fim}`
+
+        educationBox.appendChild(h3)
+        educationBox.appendChild(spanSubTitle)
+        educationBox.appendChild(spanPeriod)
+
+        if (item.certificados) {
+
+            const h4 = document.createElement('h4')
+            h4.innerText = 'Certificados'
+            educationBox.appendChild(h4)
+            item.certificados.forEach((certificado) => {
+                const ul = document.createElement('ul')
+                const li = document.createElement('li')
+                const a = document.createElement('a')
+                a.href = certificado.link
+                a.innerText = certificado.nome
+
+                li.appendChild(a)
+                ul.appendChild(li)
+
+                educationBox.appendChild(ul)
+            })
+        }
+
+
+
+        divEducacao.appendChild(educationBox)
+        console.log(item)
+    })
+
+    
+    divContainer.appendChild(figure)
+    divContainer.appendChild(createDivTitle('Sobre mim'))
+    divContainer.appendChild(createDivText(`Nascida e criada na cidade de Porto Alegre - RS, tenho 30 anos e sempre tive um certo facínio
                         pela tecnologia. Fiz vários cursos online, porém nunca consegui focar de fato então acabei
                         perdendo a prática do que aprendi. Agora estou recomeçando através de bootcamps, já consigo
-                        fazer sites responsíveis usando flexbox, bootstrap e atualmente estou aprendendo javascript.</p>
-                </div>
+                        fazer sites responsíveis usando flexbox, bootstrap e atualmente estou aprendendo javascript.`))
+    divContainerEducation.appendChild(divEducacao)
+    section.appendChild(divContainer)
+    section.appendChild(divContainerEducation)
 
-            </div>
-        </section>`
+
+    return section
 }
 
 //show contact
@@ -332,12 +404,8 @@ function showContact(profileData) {
     section.id = 'contact'
     section.classList.add('container')
 
-    const divText = document.createElement('div')
-    divText.classList.add('text')
 
-    const p = document.createElement('p')
-    p.innerText = 'Estou disponível para novos serviços e conexões. Contate-me via email ou whatsapp.'
-    
+
     const divBtn = document.createElement('div')
     divBtn.classList.add('btn-line')
 
@@ -346,9 +414,8 @@ function showContact(profileData) {
     a.innerText = profileData.email
 
     divBtn.appendChild(a)
-    divText.appendChild(p)
     section.appendChild(createDivTitle('Contate-me'))
-    section.appendChild(divText)
+    section.appendChild(createDivText('Estou disponível para novos serviços e conexões. Contate-me via email ou whatsapp.'))
     section.appendChild(createDivIconSocial(links))
     section.appendChild(divBtn)
 
