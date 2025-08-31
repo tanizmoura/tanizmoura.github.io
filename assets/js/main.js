@@ -1,3 +1,4 @@
+
 const main = document.getElementById('main-content');
 
 //set active page
@@ -52,162 +53,6 @@ async function showActualPage(page, profileData) {
     main.appendChild(functionToCall)
 }
 
-//create div iconskills
-function createDivIconSkills(skillList) {
-    const divIcon = document.createElement('div')
-    divIcon.classList.add('icons-skills')
-
-    skillList.forEach((skill) => {
-        const figure = document.createElement('figure')
-        const img = document.createElement('img')
-
-        img.src = skill.src
-        img.alt = skill.nome
-
-        figure.appendChild(img)
-
-        divIcon.appendChild(figure)
-    })
-
-    return divIcon
-}
-
-//create div iconsocial
-function createDivIconSocial(links) {
-
-    const divIcon = document.createElement('div')
-    divIcon.classList.add('icons-social')
-
-    links.forEach((link) => {
-        const a = document.createElement('a')
-        const i = document.createElement('i')
-
-        a.href = link.src
-        i.classList.add('bi')
-        i.classList.add(`bi-${link.nome}`)
-        a.appendChild(i)
-
-        divIcon.appendChild(a)
-    })
-
-    return divIcon
-}
-
-//create div softskills
-function createDivSoftSkills(softSkillsList) {
-    const divSoftSkill = document.createElement('div')
-
-    const ul = document.createElement('ul')
-    softSkillsList.forEach((skill) => {
-        const li = document.createElement('li')
-        li.innerText = skill
-        ul.appendChild(li)
-    })
-
-    const h3 = document.createElement('h3')
-    h3.innerText = 'SoftSkills'
-
-    divSoftSkill.appendChild(h3)
-    divSoftSkill.appendChild(ul)
-
-    return divSoftSkill
-}
-
-//create div languages
-function createDivLanguages(languagesList) {
-    const divLanguages = document.createElement('div')
-
-    const ul = document.createElement('ul')
-    languagesList.forEach((language) => {
-        const li = document.createElement('li')
-        li.innerText = `${language.nome} (${language.nivel})`
-        ul.appendChild(li)
-    })
-
-    const h3 = document.createElement('h3')
-    h3.innerText = 'Idiomas'
-
-    divLanguages.appendChild(h3)
-    divLanguages.appendChild(ul)
-
-    return divLanguages
-}
-
-//create div projects 
-function createDivProjects(projectsList) {
-    const divEducacao = document.createElement('div')
-    divEducacao.classList.add('education')
-
-    divEducacao.appendChild(createDivTitle('Educação'))
-
-    projectsList.forEach((item) => {
-        const educationBox = document.createElement('div')
-        educationBox.classList.add('education-box')
-
-        const h3 = document.createElement('h3')
-        h3.innerText = item.nome
-
-        const spanSubTitle = document.createElement('span')
-        spanSubTitle.innerHTML = `${item.instituicao}<br>`
-
-        const spanPeriod = document.createElement('span')
-        spanPeriod.innerHTML = `${item.periodo.inicio} - ${item.periodo.fim}`
-
-        educationBox.appendChild(h3)
-        educationBox.appendChild(spanSubTitle)
-        educationBox.appendChild(spanPeriod)
-
-        if (item.certificados) {
-
-            const h4 = document.createElement('h4')
-            h4.innerText = 'Certificados'
-            educationBox.appendChild(h4)
-            item.certificados.forEach((certificado) => {
-                const ul = document.createElement('ul')
-                const li = document.createElement('li')
-                const a = document.createElement('a')
-                a.href = certificado.link
-                a.innerText = certificado.nome
-
-                li.appendChild(a)
-                ul.appendChild(li)
-
-                educationBox.appendChild(ul)
-            })
-        }
-
-        divEducacao.appendChild(educationBox)
-    })
-
-    return divEducacao
-}
-
-//create div title
-function createDivTitle(txt) {
-    const divTitle = document.createElement('div')
-    divTitle.classList.add('title')
-
-    const h2 = document.createElement('h2')
-    h2.innerText = txt
-
-    divTitle.appendChild(h2)
-
-    return divTitle
-}
-
-//create divText
-function createDivText(txt) {
-    const divText = document.createElement('div')
-    divText.classList.add('text')
-
-    const p = document.createElement('p')
-    p.innerText = txt
-
-    divText.appendChild(p)
-
-    return divText
-}
-
 //show home page
 function showHome(profileData) {
     const links = profileData.links
@@ -225,7 +70,7 @@ function showHome(profileData) {
     const p = document.createElement('p')
     p.innerText = `${profileData.localidade}, ${profileData.cargo}.`
 
-    const divIcon = createDivIconSocial(links)
+    const divIcon = divCreator.iconSocial(links)
 
     section.appendChild(h1)
     section.appendChild(h2)
@@ -252,15 +97,15 @@ function showSkills(profileData) {
     divContainer.classList.add('container')
 
     const divOutros = document.createElement('div')
-    divOutros.appendChild(createDivSoftSkills(softSkills))
-    divOutros.appendChild(createDivLanguages(languages))
+    divOutros.appendChild(divCreator.softSkills(softSkills))
+    divOutros.appendChild(divCreator.languages(languages))
     divOutros.classList.add('subSkills')
 
     //adicionando elementos html
     section.appendChild(divSkills)
     divSkills.appendChild(divContainer)
-    divContainer.appendChild(createDivTitle('Habilidades'))
-    divContainer.appendChild(createDivIconSkills(hardSkills))
+    divContainer.appendChild(divCreator.title('Habilidades'))
+    divContainer.appendChild(divCreator.iconSkills(hardSkills))
     divContainer.appendChild(divOutros)
 
     return section
@@ -278,68 +123,11 @@ function showProjects(profileData) {
 
     const divTitleProject = document.createElement('div')
     divTitleProject.classList.add('section-project-title')
-    divTitleProject.appendChild(createDivTitle('Projetos'))
+    divTitleProject.appendChild(divCreator.title('Projetos'))
 
     section.appendChild(divTitleProject)
 
-    portfolio.forEach((projeto) => {
-        const divCard = document.createElement('div')
-        divCard.classList.add('card-project')
-
-        const figure = document.createElement('figure')
-        figure.classList.add('img-project')
-
-        const img = document.createElement('img')
-        img.src = projeto.src
-        img.alt = projeto.nome
-
-        const h3 = document.createElement('h3')
-        h3.innerText = projeto.nome
-
-        const p = document.createElement('p')
-        p.innerText = projeto.descricao
-
-
-
-        const divButtons = document.createElement('div')
-        divButtons.classList.add('buttons-project')
-
-        const aPrevia = document.createElement('a')
-        aPrevia.href = projeto.previa
-
-        const previaButton = document.createElement('button')
-        previaButton.classList.add('btn')
-        previaButton.innerText = 'Prévia'
-
-        aPrevia.appendChild(previaButton)
-
-        const aRepositorio = document.createElement('a')
-        aRepositorio.href = projeto.repositorio
-
-        const repositorioButton = document.createElement('button')
-        repositorioButton.classList.add('btn-line')
-        repositorioButton.innerText = 'Repositório'
-
-        aRepositorio.appendChild(repositorioButton)
-
-
-        /**<a href="https://tanizmoura.github.io/Projeto-Nikel/index.html">
-                        <button type="button" class="btn">Prévia</button>
-                    </a> */
-
-        divButtons.appendChild(aPrevia)
-        divButtons.appendChild(aRepositorio)
-
-        figure.appendChild(img)
-
-        divCard.appendChild(figure)
-        divCard.appendChild(h3)
-        divCard.appendChild(p)
-        divCard.appendChild(createDivIconSkills(projeto.tecnologias))
-        divCard.appendChild(divButtons)
-
-        section.appendChild(divCard)
-    })
+    divCreator.projects(portfolio, section)
 
     const divMoreButton = document.createElement('div')
     divMoreButton.classList.add('button-more-projects')
@@ -355,13 +143,6 @@ function showProjects(profileData) {
 
     section.appendChild(divMoreButton)
 
-    /*return
-            <div class="button-more-projects">
-                <a href="https://github.com/tanizmoura?tab=repositories">
-                    <button class="btn-black" type="button">Ver todos os Projetos</button>
-                </a>
-            </div>
-            </section>`*/
     return section
 }
 
@@ -385,12 +166,12 @@ function showAbout(profileData) {
     figure.appendChild(img)
     
     divContainer.appendChild(figure)
-    divContainer.appendChild(createDivTitle('Sobre mim'))
-    divContainer.appendChild(createDivText(`Nascida e criada na cidade de Porto Alegre - RS, tenho 30 anos e sempre tive um certo facínio
+    divContainer.appendChild(divCreator.title('Sobre mim'))
+    divContainer.appendChild(divCreator.text(`Nascida e criada na cidade de Porto Alegre - RS, tenho 30 anos e sempre tive um certo facínio
                         pela tecnologia. Fiz vários cursos online, porém nunca consegui focar de fato então acabei
                         perdendo a prática do que aprendi. Agora estou recomeçando através de bootcamps, já consigo
                         fazer sites responsíveis usando flexbox, bootstrap e atualmente estou aprendendo javascript.`))
-    divContainerEducation.appendChild(createDivProjects(educacao))
+    divContainerEducation.appendChild(divCreator.education(educacao))
     section.appendChild(divContainer)
     section.appendChild(divContainerEducation)
 
@@ -416,9 +197,9 @@ function showContact(profileData) {
     a.innerText = profileData.email
 
     divBtn.appendChild(a)
-    section.appendChild(createDivTitle('Contate-me'))
-    section.appendChild(createDivText('Estou disponível para novos serviços e conexões. Contate-me via email ou whatsapp.'))
-    section.appendChild(createDivIconSocial(links))
+    section.appendChild(divCreator.title('Contate-me'))
+    section.appendChild(divCreator.text('Estou disponível para novos serviços e conexões. Contate-me via email ou whatsapp.'))
+    section.appendChild(divCreator.iconSocial(links))
     section.appendChild(divBtn)
 
     return section
