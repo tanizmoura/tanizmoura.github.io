@@ -14,13 +14,16 @@ async function setActive(type, profileData) {
             activeItem = item
             activePage = item.children.item(0).href.split('#')[1]
             console.log(activePage)
-            main.innerHTML = showActualPage(activePage, profileData)
-        })        
-    })    
+            showActualPage(activePage, profileData)
+            
+        })
+    })
 }
 
+//seleciona página atual a ser mostrada na página
 function showActualPage(page, profileData) {
     let functionToCall = ''
+    main.innerHTML = ''
     switch (page) {
         case 'home':
             functionToCall = showHome(profileData)
@@ -41,20 +44,42 @@ function showActualPage(page, profileData) {
         case 'contact':
             functionToCall = showContact(profileData)
             break;
-    
+
         default:
             break;
     }
 
-    return functionToCall
+    main.appendChild(functionToCall)
 }
 
+//Mostra Home
 function showHome(profileData) {
-    return `<section id="home" class="container"> <!--HOME-->
+    const section = document.createElement('section')
+    section.id = 'home'
+    section.classList.add('container')
+    
+    const h1 = document.createElement('h1')
+    h1.innerText = `Olá! Me chamo ${profileData.nome}.`
 
-            <h1>Olá! Me chamo ${profileData.nome}.</h1>
-            <h2>${profileData.titulo}</h2>
-            <p>${profileData.localidade}, ${profileData.cargo}.</p>
+    const h2 = document.createElement('h2')
+    h2.innerText = profileData.titulo
+    
+    const p = document.createElement('p')
+    p.innerText = `${profileData.localidade}, ${profileData.cargo}.`
+
+    const divIcon = document.createElement('div')
+    
+    section.appendChild(h1)
+    section.appendChild(h2)
+    section.appendChild(p)
+    section.appendChild(divIcon)
+
+    return section
+    /*`<section id="home" class="container"> <!--HOME-->
+
+            <h1></h1>
+            <h2></h2>
+            <p></p>
 
 
             <div class="icons-social"> <!--Icones redes sociais -->
@@ -62,33 +87,41 @@ function showHome(profileData) {
                 <a href="https://www.linkedin.com/in/tanise-moura/"><i class="bi bi-linkedin"></i></a>
                 <a href="https://wa.me/+5551985200476"><i class="bi bi-whatsapp"></i></a>
             </div>
-        </section> `
+        </section> `*/
 }
 
+//Mostra habilidades
 function showSkills(profileData) {
-    return `<section> <!--SKILLS-->
-            <div id="skills">
-                <div class="container">
-                    <div class="title"> <!--Título-->
-                        <h2>Habilidades</h2>
-                    </div>
+    const hardSkills = profileData.skills.hardSkills
+    const softSkills = profileData.skills.softSkills
 
-                    <div class="icons-skills"> <!--Icones Skills-->
-                        <figure>
-                            <img src="assets/img/HTML5.png" alt="Icone HTML5">
-                        </figure>
+    //criando elementos HTML
+    const section = document.createElement('section')
 
-                        <figure>
-                            <img src="assets/img/css_icon.png" alt="Icone CSS3">
-                        </figure>
+    const divSkills = document.createElement('div')
+    divSkills.id = 'skills'
 
-                        <figure>
-                            <img src="assets/img/java-scripticon.png" alt="Icone JavaScript">
-                        </figure>
-                    </div>
-                </div>
-            </div>
-        </section>`
+    const divContainer = document.createElement('div')
+    divContainer.classList.add('container')
+
+    const divTitle = document.createElement('div')
+    divTitle.classList.add('title')
+    
+    const title = document.createElement('h2')
+    title.innerText = 'Habilidades'
+
+    const divIcon = document.createElement('div')
+    divIcon.classList.add('icon-skills')
+
+    //adicionando elementos html
+    section.appendChild(divSkills)
+    divSkills.appendChild(divContainer)
+    divContainer.appendChild(divTitle)
+    divContainer.appendChild(divIcon)
+    divTitle.appendChild(title)
+
+    return section
+    
 }
 
 function showProjects(profileData) {
@@ -187,12 +220,10 @@ function showContact(profileData) {
 (async () => {
     const profileData = await fetchProfileData()
     const profile = await createProfile()
-    console.log(profileData)
-    console.log(profile)
-    main.innerHTML = showActualPage('home', profileData)
+    showActualPage('home', profileData)
     await setActive('mobile', profileData)
     await setActive('lg', profileData)
-    
+
 })()
 
 
