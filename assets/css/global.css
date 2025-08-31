@@ -1,0 +1,95 @@
+/*CSS RESET*/
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    border: none;
+    list-style: none;
+}
+
+/*DEFININDO CONFIGURAÇÕES DE FONTE PADRÃO*/
+h1,
+.title {
+    font-family: "Cantora One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+    background-color: var(--primary-bg-color);
+}
+
+main {
+    padding: 1rem;
+    margin-bottom: 5rem;    
+}
+
+
+/*CORES PADRÃO BODY E LINKS*/
+body,
+a {
+    color: var(--primary-color);
+}
+
+/*TIPOGRAFIA*/
+.text {
+    font-weight: 300;
+}
+
+#home p {
+    font-weight: 200;
+}
+
+.btn,
+.btn-line,
+#contact a {
+    font-weight: 600;
+}
+
+.title-project {
+    font-weight: 500;
+}
+
+i {
+    font-size: 2rem;
+}
+
+.title {
+    font-size: 1rem;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--details);
+    padding-bottom: .5rem;
+    max-width: 10rem;
+}
+
+.text {
+    padding: 1rem;
+    font-size: 1.1rem;
+    word-break:normal;
+    text-align:center;
+
+}
+
+/*DEFINIÇÕES CONTAINER*/
+.container {
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-header {
+    padding: .3rem;
+    display: flex;
+    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+

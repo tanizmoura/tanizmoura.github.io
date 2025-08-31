@@ -21,7 +21,7 @@ async function setActive(type, profileData) {
 }
 
 //select and set actual page
-function showActualPage(page, profileData) {
+async function showActualPage(page, profileData) {
     let functionToCall = ''
     main.innerHTML = ''
     switch (page) {
@@ -131,6 +131,55 @@ function createDivLanguages(languagesList) {
     divLanguages.appendChild(ul)
 
     return divLanguages
+}
+
+//create div projects 
+function createDivProjects(projectsList) {
+    const divEducacao = document.createElement('div')
+    divEducacao.classList.add('education')
+
+    divEducacao.appendChild(createDivTitle('Educação'))
+
+    projectsList.forEach((item) => {
+        const educationBox = document.createElement('div')
+        educationBox.classList.add('education-box')
+
+        const h3 = document.createElement('h3')
+        h3.innerText = item.nome
+
+        const spanSubTitle = document.createElement('span')
+        spanSubTitle.innerHTML = `${item.instituicao}<br>`
+
+        const spanPeriod = document.createElement('span')
+        spanPeriod.innerHTML = `${item.periodo.inicio} - ${item.periodo.fim}`
+
+        educationBox.appendChild(h3)
+        educationBox.appendChild(spanSubTitle)
+        educationBox.appendChild(spanPeriod)
+
+        if (item.certificados) {
+
+            const h4 = document.createElement('h4')
+            h4.innerText = 'Certificados'
+            educationBox.appendChild(h4)
+            item.certificados.forEach((certificado) => {
+                const ul = document.createElement('ul')
+                const li = document.createElement('li')
+                const a = document.createElement('a')
+                a.href = certificado.link
+                a.innerText = certificado.nome
+
+                li.appendChild(a)
+                ul.appendChild(li)
+
+                educationBox.appendChild(ul)
+            })
+        }
+
+        divEducacao.appendChild(educationBox)
+    })
+
+    return divEducacao
 }
 
 //create div title
@@ -316,6 +365,7 @@ function showProjects(profileData) {
     return section
 }
 
+//show about page
 function showAbout(profileData) {
     const educacao = profileData.educacao
 
@@ -333,54 +383,6 @@ function showAbout(profileData) {
     img.alt = 'Imagem da desenvolvedora'
 
     figure.appendChild(img)
-
-    const divEducacao = document.createElement('div')
-    divEducacao.classList.add('education')
-
-    divEducacao.appendChild(createDivTitle('Educação'))
-
-    educacao.forEach((item) => {
-        const educationBox = document.createElement('div')
-        educationBox.classList.add('education-box')
-
-        const h3 = document.createElement('h3')
-        h3.innerText = item.nome
-
-        const spanSubTitle = document.createElement('span')
-        spanSubTitle.innerHTML = `${item.instituicao}<br>`
-
-        const spanPeriod = document.createElement('span')
-        spanPeriod.innerHTML = `${item.periodo.inicio} - ${item.periodo.fim}`
-
-        educationBox.appendChild(h3)
-        educationBox.appendChild(spanSubTitle)
-        educationBox.appendChild(spanPeriod)
-
-        if (item.certificados) {
-
-            const h4 = document.createElement('h4')
-            h4.innerText = 'Certificados'
-            educationBox.appendChild(h4)
-            item.certificados.forEach((certificado) => {
-                const ul = document.createElement('ul')
-                const li = document.createElement('li')
-                const a = document.createElement('a')
-                a.href = certificado.link
-                a.innerText = certificado.nome
-
-                li.appendChild(a)
-                ul.appendChild(li)
-
-                educationBox.appendChild(ul)
-            })
-        }
-
-
-
-        divEducacao.appendChild(educationBox)
-        console.log(item)
-    })
-
     
     divContainer.appendChild(figure)
     divContainer.appendChild(createDivTitle('Sobre mim'))
@@ -388,7 +390,7 @@ function showAbout(profileData) {
                         pela tecnologia. Fiz vários cursos online, porém nunca consegui focar de fato então acabei
                         perdendo a prática do que aprendi. Agora estou recomeçando através de bootcamps, já consigo
                         fazer sites responsíveis usando flexbox, bootstrap e atualmente estou aprendendo javascript.`))
-    divContainerEducation.appendChild(divEducacao)
+    divContainerEducation.appendChild(createDivProjects(educacao))
     section.appendChild(divContainer)
     section.appendChild(divContainerEducation)
 
@@ -424,7 +426,7 @@ function showContact(profileData) {
 
 (async () => {
     const profileData = await fetchProfileData()
-    showActualPage('home', profileData)
+    await showActualPage('home', profileData)
     await setActive('mobile', profileData)
     await setActive('lg', profileData)
 
