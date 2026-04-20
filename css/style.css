@@ -1,0 +1,397 @@
+/*Definição de Cores*/
+
+:root {
+  color-scheme: light dark;
+  --bg: light-dark(#f5f5f5, #1a0a0f);
+  --primary: light-dark(#1a0a0f, #f5f5f5e3);
+  --secundary: #ec4899;
+  --details: light-dark(#f9cfe3, #552f3a);
+  --title-box: #1a0a0f;
+  --btn-txt: #f5f5f5;
+  --btn-bg: #ec4899;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+.light {
+  color-scheme: light;
+}
+
+.navbar {
+  --bs-navbar-toggler-border-color: none;
+}
+
+/*Importação de Fontes*/
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("../assets/fonts/SpaceGrotesk.ttf");
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "Space Mono Bold";
+  src: url("../assets/fonts/SpaceMono-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Space Mono Regular";
+  src: url("../assets/fonts/SpaceMono-Regular.ttf");
+}
+
+/*CSS RESET*/
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  color: var(--primary);
+}
+a {
+  text-decoration: none;
+}
+h1,
+h2,
+h3 {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 800;
+  color: var(--secundary);
+}
+
+span {
+  display: inline-block;
+  background-color: var(--details);
+  font-weight: 800;
+  padding: 0.5rem;
+  border-radius: 5rem;
+}
+
+/*Body Config*/
+body {
+  font-family: "Space Mono Regular", sans-serif;
+  background-image: url("../assets/img/bg.webp");
+  background-repeat: repeat;
+  background-color: var(--bg);
+  color: var(--primary);
+  padding: 2vw 7vw;
+  font-size: clamp(16px, 1.5vw, 1.5vw);
+}
+
+.card-box {
+  width: 100%;
+}
+
+/*HEADER*/
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  ul {
+    display: flex;
+    text-align: center;
+    gap: 4vw;
+    justify-content: space-between;
+    font-size: clamp(16px, 1.3vw, 1.3vw);
+
+    li:hover {
+      font-weight: 800;
+      p {
+        transform: scale(1.1);
+        transition: all 0.5s ease-in-out;
+      }
+    }
+  }
+
+  .btn-toogle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--secundary);
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+}
+
+main {
+  .top-card {
+    background-color: var(--secundary);
+    border-radius: 15px 15px 0 0;
+    display: flex;
+    height: 2rem;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--primary);
+    p {
+      color: var(--title-box);
+      line-height: 1rem;
+    }
+  }
+
+  .body-card {
+    display: flex;
+    background-color: var(--bg);
+    border-radius: 0 0 15px 15px;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 5vw;
+    border-bottom: 1px solid var(--primary);
+    border-left: 1px solid var(--primary);
+    border-right: 1px solid var(--primary);
+    padding: 1vw;
+  }
+
+  .profile img {
+    width: 100%;
+    border: 5px solid var(--secundary);
+    border-radius: 200px;
+  }
+
+  .info-box {
+    width: 70%;
+    .txt-box {
+      text-align: center;
+
+      h1 {
+        font-family: "Space Grotesk";
+        font-weight: 800;
+        font-size: 5vw;
+        color: var(--secundary);
+      }
+    }
+  }
+
+  .social-medias ul {
+    margin-top: 1vw;
+    display: flex;
+    justify-content: center;
+    gap: 8vw;
+    padding: 0;
+  }
+}
+
+section {
+  min-width: 100%;
+  margin-bottom: 5vw;
+}
+
+section#habilidades {
+  ul li {
+    list-style: disc;
+    text-align: start;
+  }
+  .left-side {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2vw;
+    span {
+      font-size: clamp(18px, 3vw, 3vw);
+    }
+  }
+}
+
+section#sobre-mim {
+  height: auto;
+  .left-side {
+    width: 80%;
+    text-align: center;
+    .curriculo-link {
+      p {
+        font-size: clamp(16px, 1vw, 1vw);
+        font-weight: 800;
+        &:hover {
+          color: var(--secundary);
+          text-shadow: 0 0 5px var(--secundary);
+          transition: all 0.5s ease-in-out;
+        }
+      }
+    }
+  }
+}
+
+section#projetos {
+  height: auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .body-card {
+    flex-direction: column;
+  }
+
+  ul {
+    display: flex;
+    padding: 1rem;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    li {
+      width: 40%;
+      margin-bottom: 4rem;
+    }
+  }
+
+  .more-projects,
+  .buttons-project {
+    a {
+      background-color: var(--btn-bg);
+      color: var(--btn-txt);
+      padding: 0.5rem;
+      border-radius: 5rem;
+    }
+  }
+
+  .more-projects {
+    position: absolute;
+    bottom: 2vw;
+    margin-bottom: 1rem;
+  }
+
+  .project-box {
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    img {
+      width: 100%;
+      margin-bottom: 1rem;
+      border: 2px solid var(--secundary);
+      border-radius: 15px;
+    }
+    p,
+    span,
+    a {
+      font-size: clamp(16px, 1.1vw, 1.1vw);
+      margin-top: 1rem;
+    }
+
+    p {
+      text-align: start;
+    }
+
+    .tecnologias {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+  }
+
+  .buttons-project {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+section#home {
+  h1 {
+    text-transform: uppercase;
+  }
+}
+
+section#contato {
+  .body-card {
+    flex-direction: column;
+    gap: 1vw;
+  }
+
+  .email a {
+    color: var(--secundary);
+    font-family: "Space Grotesk", sans-serif;
+    font-size: Clamp(16px, 1.8vw, 1.8vw);
+
+    &:hover {
+      border-bottom: 1px solid var(--primary);
+      text-shadow: 0 0 5px var(--secundary);
+      transition: all 0.5s ease-in-out;
+    }
+  }
+}
+
+/* Estado inicial: invisível e levemente deslocado para baixo */
+.fade-in {
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 0.5s ease-out,
+    transform 0.5s ease-out;
+}
+
+/* Estado final: visível e na posição original */
+.fade-in.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.active-link {
+  font-weight: 800;
+}
+
+/* Ajustes para telas pequenas (smartphones) */
+@media (max-width: 767.98px) {
+  body {
+    padding: 2vw;
+  }
+  header {
+    ul {
+      text-align: start;
+      gap: 0px;
+      img {
+        display: none;
+      }
+    }
+
+    .btn-toogle {
+      width: 32px;
+      height: 32px;
+      img {
+        width: 20px;
+      }
+    }
+  }
+
+  main {
+    text-align: center;
+
+    .profile img {
+      width: 60%;
+    }
+
+    .info-box {
+      .txt-box {
+        h1 {
+          font-family: "Space Grotesk";
+          font-weight: 800;
+          font-size: 7vw;
+          color: var(--secundary);
+        }
+
+        h2 {
+          font-size: 4vw;
+        }
+      }
+    }
+  }
+  section {
+    flex-direction: column;
+
+    .body-card {
+      flex-direction: column;
+      padding: 5vw;
+    }
+  }
+
+  section#projetos {
+    ul {
+      flex-direction: column;
+      li {
+        width: 100%;
+      }
+    }
+  }
+}

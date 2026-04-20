@@ -1,0 +1,107 @@
+{
+  "nome": "Tanise Moura",
+  "titulo": "Desenvolvedora Front-End",
+  "frase": "Criando experiências digitais modernas e responsivas com código limpo e design centrado no usuário",
+  "sobre": "Nascida e criada na cidade de Porto Alegre/RS, sou desenvolvedora front-end em inicío de carreira que sempre teve um certo facínio pela tecnologia. Tudo que aprendi e sigo aprendendo até então é através de cursos onlines e bootcamps. Consigo fazer sites totalmente responsíveis usando código puro e bootstrap. Atualmente estou estudando animações usando gsap.",
+  "links": [
+    {
+      "nome": "github",
+      "src": "https://github.com/tanizmoura",
+      "img": "assets/img/git-icon.svg"
+    },
+    {
+      "nome": "linkedin",
+      "src": "https://www.linkedin.com/in/tanise-moura/",
+      "img": "assets/img/linkedin-icon.svg"
+    },
+    {
+      "nome": "whatsapp",
+      "src": "https://wa.me/+5551985200476",
+      "img": "assets/img/whatsapp-icon.svg"
+    }
+  ],
+  "email": "tanizmoura@gmail.com",
+  "curriculo": {
+    "src": "https://drive.google.com/file/d/1gaZv1MZ2ZSHcpfucPHfnUkFwEbgljzeG/view?usp=drive_link",
+    "img": "assets/img/pdf-icon.svg"
+  },
+  "perfilPhoto": "assets/img/profile.webp",
+  "skills": {
+    "hardSkills": ["HTML5", "CSS3", "JavaScript", "Git e GitHub", "Bootstrap"],
+    "softSkills": [
+      "Trabalho em Equipe",
+      "Empatia",
+      "Autodidata",
+      "Organização",
+      "Flexibilidade"
+    ]
+  },
+  "idiomas": [
+    {
+      "nome": "Português",
+      "nivel": "Nativo"
+    },
+    {
+      "nome": "Inglês",
+      "nivel": "Intermediário"
+    }
+  ],
+  "formacao": [
+    {
+      "nome": "Formação Front-End com ReactJS",
+      "instituicao": "Growdev",
+      "periodo": {
+        "inicio": "2025",
+        "fim": "Atualmente"
+      }
+    }
+  ],
+  "certificados": [
+    {
+      "titulo": "DevArt",
+      "descricao": "Projetos de Alto Valor - Agência 3D (10h) Gustavo Campelo | 2026"
+    },
+    {
+      "titulo": "Bootcamp Santander",
+      "descricao": "Front-End (102h) Digital Innovation One (DIO) | 2025"
+    },
+    {
+      "titulo": "Bootcamp Suzano",
+      "descricao": "Python Developer (57h) Digital Innovation One (DIO) | 2025"
+    }
+  ],
+  "portfolio": [
+    {
+      "titulo": "MasterQuiz",
+      "descricao": "O Master Quiz é uma aplicação web interativa desenvolvida para testar conhecimentos sobre o universo da cultura pop (filmes, séries e games). O projeto foi criado com o objetivo de praticar a manipulação dinâmica do DOM, lógica de arrays e estilização responsiva sem dependência de APIs externas.",
+      "tecnologias": ["HTML5", "CSS3", "JavaScript"],
+      "previa": "https://tanizmoura.github.io/MasterQuiz/",
+      "repositorio": "https://github.com/tanizmoura/MasterQuiz",
+      "img": "assets/img/projetos/masterquiz.webp"
+    },
+    {
+      "titulo": "Projeto Nikel",
+      "descricao": "Simula um sistema de registros financeiros onde é possível fazer um cadastro simples para poder salvar entradas e saídas.",
+      "tecnologias": ["HTML5", "CSS3", "JavaScript"],
+      "previa": "https://tanizmoura.github.io/Projeto-Nikel/",
+      "repositorio": "https://github.com/tanizmoura/Projeto-Nikel",
+      "img": "assets/img/projetos/nikel.webp"
+    },
+    {
+      "titulo": "Growflix",
+      "descricao": "Projeto criado durante o curso de Formação em Front-End com ReactJS. O objetivo era reproduzir um layout semelhante ao Netflix usando HTML,CSS,Bootstrap e JavaScrip. Todos os vídeos estão em uma lista e são gerados dinamicamente na página via JS.",
+      "tecnologias": ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
+      "previa": "https://tanizmoura.github.io/Growflix/",
+      "repositorio": "https://github.com/tanizmoura/Growflix",
+      "img": "assets/img/projetos/growflix.webp"
+    },
+    {
+      "titulo": "Popular Movies",
+      "descricao": "Treino de consumo de API, onde o objetivo era consumir a API do TMDB para exibir os filmes mais populares do momento. O projeto foi desenvolvido usando HTML, CSS e JavaScript puro, sem o auxílio de frameworks ou bibliotecas externas.",
+      "tecnologias": ["HTML5", "CSS3", "JavaScript"],
+      "previa": "https://tanizmoura.github.io/popular-movies/",
+      "repositorio": "https://github.com/tanizmoura/popular-movies",
+      "img": "assets/img/projetos/movies.webp"
+    }
+  ]
+}
